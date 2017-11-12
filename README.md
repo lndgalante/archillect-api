@@ -1,13 +1,14 @@
-# archillect-unoffcial-api
-Archillect.com Unofficial API
+# Archillect Unofficial API
 
-## Get a list of visuals
+## How to use it?
+
+### Get a list of visuals
 It brings a list of the lastest 20 visuals by default
-> GET [https://archpi.now.sh/visuals](https://archpi.now.sh/visuals)
+> GET [https://archillect-api.now.sh/visuals](https://archillect-api.now.sh/visuals)
 
 You could also ask for a number of results with a maximum of 200
 
-> GET [https://archpi.now.sh/visuals?per=120](https://archpi.now.sh/visuals?per=120)
+> GET [https://archillect-api.now.sh/visuals?per=120](https://archillect-api.now.sh/visuals?per=120)
 
 Example esponse:
 ```json
@@ -26,9 +27,9 @@ Example esponse:
 ]
 ```
 
-## Get a random 
+### Get a random 
 Brings one random visual
-> GET [https://archpi.now.sh/random](https://archpi.now.sh/random)
+> GET [https://archillect-api.now.sh/random](https://archillect-api.now.sh/random)
 
 Example esponse:
 ```json
@@ -39,15 +40,19 @@ Example esponse:
 }
 ```
 
-## Get an id
+### Get an id
 Brings one visual id specified
-> GET [https://archpi.now.sh/147836](https://archpi.now.sh/147836)
+> GET [https://archillect-api.now.sh/147836](https://archillect-api.now.sh/147836)
 
 Example esponse:
 ```json
 {
   "source": "http://78.media.tumblr.com/a06af535eb801c32ff60c5dbb0031d13/tumblr_olhnlsSjnS1vczpxxo1_400.gif",
   "original": "http://archillect.com/147836",
-  "id": "147836"
+  "id": 147836
 }
 ```
+
+
+#### License
+MIT © **[`Leonardo Galante`](https://leonardogalante.com)**
