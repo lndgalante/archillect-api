@@ -3,11 +3,11 @@ Archillect.com Unofficial API
 
 ## Get a list of visuals
 It brings a list of the lastest 20 visuals by default
-> GET archpi.now.sh/visuals
+> GET [https://archpi.now.sh/visuals](https://archpi.now.sh/visuals)
 
 You could also ask for a number of results with a maximum of 200
 
-> GET archpi.now.sh/visuals?per=120
+> GET [https://archpi.now.sh/visuals?per=120](https://archpi.now.sh/visuals?per=120)
 
 Example esponse:
 ```json
@@ -28,7 +28,7 @@ Example esponse:
 
 ## Get a random 
 Brings one random visual
-> GET archpi.now.sh/random
+> GET [https://archpi.now.sh/random](https://archpi.now.sh/random)
 
 Example esponse:
 ```json
@@ -41,7 +41,7 @@ Example esponse:
 
 ## Get an id
 Brings one visual id specified
-> GET archpi.now.sh/147836
+> GET [https://archpi.now.sh/147836](https://archpi.now.sh/147836)
 
 Example esponse:
 ```json
