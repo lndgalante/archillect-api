@@ -16,7 +16,7 @@ class ArchillectScrapper {
         }
       })
 
-      return res.max
+      return Number(res.max)
     } catch (error) {
       throw new Error(error)
     }
@@ -56,9 +56,10 @@ class ArchillectScrapper {
 
   async idRoute(id) {
     const max = await this.getMax()
+    id = Number(id)
 
-    if (id < this.min || id > max)
-      return { error: `Only ids between ${this.min} and ${max}` }
+    if (id < this.min && id > max)
+      return { error: `The id ${id} should be between ${this.min} and ${max}` }
 
     const source = await this.getImageSrc(id)
     const original = `${this.baseUrl}/${id}`
@@ -68,6 +69,33 @@ class ArchillectScrapper {
       original,
       id
     }
+  }
+
+  async visualsRoute(per = 20) {
+    if (per > 200) return { error: `You cannot get more than 200 visuals` }
+
+    let max = await this.getMax()
+    const ids = []
+
+    for (let i = 0; i < per; i++) {
+      ids[i] = max
+      max--
+    }
+
+    const result = await Promise.all(
+      ids.map(async id => {
+        const source = await this.getImageSrc(id)
+        const original = `${this.baseUrl}/${id}`
+
+        return {
+          source,
+          original,
+          id
+        }
+      })
+    )
+
+    return result
   }
 }
 
