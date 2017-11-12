@@ -1,0 +1,20 @@
+{
+  "name": "archillect-unoffcial-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/lndgalante/archillect-unoffcial-api.git",
+  "author": "lndgalante <lndgalante@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "micro": "^9.0.1",
+    "microrouter": "^3.0.0",
+    "scrape-it": "^4.0.0"
+  },
+  "devDependencies": {
+    "micro-dev": "^1.4.0"
+  },
+  "scripts": {
+    "start": "micro",
+    "dev": "micro-dev"
+  }
+}
