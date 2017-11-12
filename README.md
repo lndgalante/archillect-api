@@ -28,7 +28,7 @@ Example esponse:
 
 ## Get a random 
 Brings one random visual
-> GET archpi.now.sh/visuals/random
+> GET archpi.now.sh/random
 
 Example esponse:
 ```json
@@ -41,7 +41,7 @@ Example esponse:
 
 ## Get an id
 Brings one visual id specified
-> GET archpi.now.sh/visuals/147836
+> GET archpi.now.sh/147836
 
 Example esponse:
 ```json
