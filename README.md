@@ -24,7 +24,8 @@ Example response:
 ```
 
 ### Get a list of a number of visuals
-You could also ask for a number of results with a maximum of 200
+You could also ask for a number of the latest visuals through the `per` query.
+With 200 maximum.
 > GET [https://archillect-api.now.sh/visuals?per=120](https://archillect-api.now.sh/visuals?per=120)
 
 
