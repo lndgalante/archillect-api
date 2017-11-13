@@ -55,11 +55,10 @@ class ArchillectScrapper {
   }
 
   async idRoute(id) {
-    const max = await this.getMax()
-    id = Number(id)
+    if (!Number.isInteger(Number(id))) return { error: `The id ${id} should be an integer` }
 
-    if (id < this.min && id > max)
-      return { error: `The id ${id} should be between ${this.min} and ${max}` }
+    const max = await this.getMax()
+    if (id < this.min || id > max) return { error: `The id ${id} should be between ${this.min} and ${max}` }
 
     const source = await this.getImageSrc(id)
     const original = `${this.baseUrl}/${id}`
