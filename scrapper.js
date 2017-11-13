@@ -56,7 +56,6 @@ class ArchillectScrapper {
 
   async idRoute(id) {
     id = Number(id)
-
     if (!Number.isInteger(id)) return { error: `The id should be an integer` }
 
     const max = await this.getMax()
@@ -73,7 +72,10 @@ class ArchillectScrapper {
   }
 
   async visualsRoute(per = 20) {
-    if (per > 200) return { error: `You cannot get more than 200 visuals` }
+    per = Number(per)
+    if (!Number.isInteger(per)) return { error: 'The per query should be an integer' }
+    if (per < 1) return { error: 'The per query should be bigger than 0' }
+    if (per > 200) return { error: 'You cannot get more than 200 visuals' }
 
     let max = await this.getMax()
     const ids = []
