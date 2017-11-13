@@ -55,7 +55,9 @@ class ArchillectScrapper {
   }
 
   async idRoute(id) {
-    if (!Number.isInteger(Number(id))) return { error: `The id ${id} should be an integer` }
+    id = Number(id)
+
+    if (!Number.isInteger(id)) return { error: `The id should be an integer` }
 
     const max = await this.getMax()
     if (id < this.min || id > max) return { error: `The id ${id} should be between ${this.min} and ${max}` }
