@@ -7,6 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "micro": "^9.0.1",
+    "micro-cors": "^0.0.4",
     "microrouter": "^3.0.0",
     "scrape-it": "^4.0.0"
   },
