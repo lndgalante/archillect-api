@@ -12,8 +12,8 @@ class ArchillectScrapper {
         max: {
           selector: 'div#container > a',
           attr: 'href',
-          convert: x => x.replace('/', '')
-        }
+          convert: x => x.replace('/', ''),
+        },
       })
 
       return Number(res.max)
@@ -27,8 +27,8 @@ class ArchillectScrapper {
       const res = await scrapeIt(`${this.baseUrl}/${id}`, {
         src: {
           selector: 'img#ii',
-          attr: 'src'
-        }
+          attr: 'src',
+        },
       })
 
       return res.src
@@ -50,7 +50,7 @@ class ArchillectScrapper {
     return {
       source,
       original,
-      id
+      id,
     }
   }
 
@@ -67,7 +67,7 @@ class ArchillectScrapper {
     return {
       source,
       original,
-      id
+      id,
     }
   }
 
@@ -93,7 +93,7 @@ class ArchillectScrapper {
         return {
           source,
           original,
-          id
+          id,
         }
       })
     )
