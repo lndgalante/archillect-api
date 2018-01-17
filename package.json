@@ -1,13 +1,13 @@
 {
   "author": "lndgalante <lndgalante@gmail.com>",
   "dependencies": {
-    "micro": "^9.0.1",
-    "micro-cors": "^0.0.4",
+    "micro": "^9.1.0",
+    "micro-cors": "^0.1.0",
     "microrouter": "^3.0.0",
-    "scrape-it": "^4.0.0"
+    "scrape-it": "^4.1.2"
   },
   "devDependencies": {
-    "micro-dev": "^1.4.0"
+    "micro-dev": "^2.2.0"
   },
   "license": "MIT",
   "main": "index.js",

@@ -7,34 +7,26 @@ class ArchillectScrapper {
   }
 
   async getMax() {
-    try {
-      const res = await scrapeIt(this.baseUrl, {
-        max: {
-          selector: 'div#container > a',
-          attr: 'href',
-          convert: x => x.replace('/', ''),
-        },
-      })
+    const res = await scrapeIt(this.baseUrl, {
+      max: {
+        selector: 'div#container > a',
+        attr: 'href',
+        convert: x => x.replace('/', ''),
+      },
+    })
 
-      return Number(res.max)
-    } catch (error) {
-      throw new Error(error)
-    }
+    return Number(res.max)
   }
 
   async getImageSrc(id) {
-    try {
-      const res = await scrapeIt(`${this.baseUrl}/${id}`, {
-        src: {
-          selector: 'img#ii',
-          attr: 'src',
-        },
-      })
+    const res = await scrapeIt(`${this.baseUrl}/${id}`, {
+      src: {
+        selector: 'img#ii',
+        attr: 'src',
+      },
+    })
 
-      return res.src
-    } catch (error) {
-      throw new Error(error)
-    }
+    return res.src
   }
 
   getRandomNumber(max) {
