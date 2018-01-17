@@ -1,5 +1,10 @@
 {
+  "name": "archillect-unoffcial-api",
   "author": "lndgalante <lndgalante@gmail.com>",
+  "version": "1.0.0",
+  "license": "MIT",
+  "main": "index.js",
+  "repository": "https://github.com/lndgalante/archillect-unoffcial-api.git",
   "dependencies": {
     "micro": "^9.1.0",
     "micro-cors": "^0.1.0",
@@ -9,13 +14,14 @@
   "devDependencies": {
     "micro-dev": "^2.2.0"
   },
-  "license": "MIT",
-  "main": "index.js",
-  "name": "archillect-unoffcial-api",
-  "repository": "https://github.com/lndgalante/archillect-unoffcial-api.git",
   "scripts": {
     "dev": "micro-dev",
     "start": "micro"
   },
-  "version": "1.0.0"
+  "now": {
+    "alias": "archillect-api",
+    "engines": {
+      "node": "9.x.x"
+    }
+  }
 }
