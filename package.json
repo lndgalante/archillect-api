@@ -6,13 +6,13 @@
   "main": "index.js",
   "repository": "https://github.com/lndgalante/archillect-unoffcial-api.git",
   "dependencies": {
-    "micro": "^9.1.0",
+    "micro": "^9.3.2",
     "micro-cors": "^0.1.0",
-    "microrouter": "^3.0.0",
+    "microrouter": "^3.1.3",
     "scrape-it": "^4.1.2"
   },
   "devDependencies": {
-    "micro-dev": "^2.2.0"
+    "micro-dev": "^3.0.0"
   },
   "scripts": {
     "dev": "micro-dev",
@@ -21,7 +21,7 @@
   "now": {
     "alias": "archillect-api",
     "engines": {
-      "node": "9.x.x"
+      "node": "10.x.x"
     }
   }
 }

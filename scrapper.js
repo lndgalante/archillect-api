@@ -18,15 +18,28 @@ class ArchillectScrapper {
     return Number(res.max)
   }
 
-  async getImageSrc(id) {
+  async getImageSources(id) {
     const res = await scrapeIt(`${this.baseUrl}/${id}`, {
-      src: {
+      imageSource: {
         selector: 'img#ii',
         attr: 'src',
       },
+      sourceLinks: {
+        listItem: '#sources a',
+        data: {
+          content: {
+            attr: 'href',
+          },
+        },
+      },
     })
 
-    return res.src
+    const resParsed = {
+      ...res,
+      sourceLinks: res.sourceLinks.map(sourceLink => sourceLink.content),
+    }
+
+    return resParsed
   }
 
   getRandomNumber(max) {
@@ -36,11 +49,12 @@ class ArchillectScrapper {
   async randomRoute() {
     const max = await this.getMax()
     const id = this.getRandomNumber(max)
-    const source = await this.getImageSrc(id)
+    const { imageSource, sourceLinks } = await this.getImageSources(id)
     const original = `${this.baseUrl}/${id}`
 
     return {
-      source,
+      sourceLinks,
+      imageSource,
       original,
       id,
     }
@@ -53,11 +67,12 @@ class ArchillectScrapper {
     const max = await this.getMax()
     if (id < this.min || id > max) return { error: `The id ${id} should be between ${this.min} and ${max}` }
 
-    const source = await this.getImageSrc(id)
+    const { imageSource, sourceLinks } = await this.getImageSources(id)
     const original = `${this.baseUrl}/${id}`
 
     return {
-      source,
+      sourceLinks,
+      imageSource,
       original,
       id,
     }
@@ -79,11 +94,12 @@ class ArchillectScrapper {
 
     const result = await Promise.all(
       ids.map(async id => {
-        const source = await this.getImageSrc(id)
+        const { imageSource, sourceLinks } = await this.getImageSources(id)
         const original = `${this.baseUrl}/${id}`
 
         return {
-          source,
+          sourceLinks,
+          imageSource,
           original,
           id,
         }
