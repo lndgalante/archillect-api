@@ -36,7 +36,7 @@ class ArchillectScrapper {
 
     const resParsed = {
       ...res,
-      sourceLinks: res.sourceLinks.map(sourceLink => sourceLink.content),
+      sourceLinks: res.sourceLinks.map(sourceLink => sourceLink.content.replace(/ℑ/g, '&image_')),
     }
 
     return resParsed
