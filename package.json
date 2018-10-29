@@ -7,6 +7,7 @@
   "repository": "https://github.com/lndgalante/archillect-unoffcial-api.git",
   "dependencies": {
     "micro": "^9.3.2",
+    "micro-cacheable": "^2.0.1",
     "micro-cors": "^0.1.0",
     "microrouter": "^3.1.3",
     "scrape-it": "^4.1.2"
