@@ -2,9 +2,10 @@ const { send } = require('micro')
 const cors = require('micro-cors')()
 const { router, get } = require('microrouter')
 const cache = require('micro-cacheable')
+const ms = require('ms')
 const scrapper = require('./scrapper')
 
-const visuals = cache(24 * 60 * 60 * 1000, async (req, res) => {
+const visuals = cache(ms('10m'), async (req, res) => {
   try {
     send(res, 200, await scrapper.visualsRoute(req.query.per))
   } catch (error) {
@@ -12,7 +13,7 @@ const visuals = cache(24 * 60 * 60 * 1000, async (req, res) => {
   }
 })
 
-const random = cache(24 * 60 * 60 * 1000, async (req, res) => {
+const random = cache(ms('10m'), async (req, res) => {
   try {
     send(res, 200, await scrapper.randomRoute())
   } catch (error) {
@@ -20,7 +21,7 @@ const random = cache(24 * 60 * 60 * 1000, async (req, res) => {
   }
 })
 
-const id = cache(24 * 60 * 60 * 1000, async (req, res) => {
+const id = cache(ms('24h'), async (req, res) => {
   try {
     send(res, 200, await scrapper.idRoute(req.params.id))
   } catch (error) {
@@ -28,12 +29,12 @@ const id = cache(24 * 60 * 60 * 1000, async (req, res) => {
   }
 })
 
-const notFound = cache(24 * 60 * 60 * 1000, (req, res) => {
+const notFound = (req, res) => {
   send(res, 404, {
     error: 'Not found route',
-    docs: 'https://github.com/lndgalante/archillect-unoffcial-api',
+    docs: 'https://github.com/lndgalante/archillect-api',
   })
-})
+}
 
 module.exports = router(
   get('/visuals', cors(visuals)),
