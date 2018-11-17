@@ -9,7 +9,7 @@ const cache = async (ms, func, req, res) => {
   const data = await func(req, res)
   responses[req.url] = {
     data,
-    date: ms && new Date(new Date().getTime() + ms)
+    date: ms && new Date(new Date().getTime() + ms),
   }
   return data
 }
