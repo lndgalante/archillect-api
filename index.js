@@ -3,7 +3,7 @@ const cors = require('micro-cors')()
 const { router, get } = require('microrouter')
 const ms = require('ms')
 const scrapper = require('./scrapper')
-const cache = require('./cache');
+const cache = require('./cache')
 
 const visuals = async (req, res) => {
   const data = await cache(ms('10m'), async (req) => {
@@ -38,7 +38,8 @@ const random = async (req, res) => {
 }
 
 const id = async (req, res) => {
-  const data = await cache(ms('24h'), async (req) => {
+  // Cache with 'null' ms -- means cache forever
+  const data = await cache(null, async (req) => {
     try {
       return await scrapper.idRoute(req.params.id)
     } catch (error) {
