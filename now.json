@@ -1,6 +1,0 @@
-{
-  "version": 2,
-  "name": "archillect-api",
-  "alias": "archillect-api",
-  "builds": [{ "src": "index.js", "use": "@now/node" }]
-}
